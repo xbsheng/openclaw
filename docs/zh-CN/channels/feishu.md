@@ -205,7 +205,7 @@ openclaw channels add
 
 #### 获取 Verification Token（仅 Webhook 模式）
 
-使用 Webhook 模式时，需配置 `channels.feishu.verificationToken`（或环境变量 `FEISHU_VERIFICATION_TOKEN`）。获取方式：
+使用 Webhook 模式时，需在配置中设置 `channels.feishu.verificationToken`。获取方式：
 
 1. 在飞书开放平台打开您的应用
 2. 进入 **开发配置** → **事件与回调**
@@ -219,8 +219,6 @@ openclaw channels add
 ```bash
 export FEISHU_APP_ID="cli_xxx"
 export FEISHU_APP_SECRET="xxx"
-# 仅 Webhook 模式需要：
-export FEISHU_VERIFICATION_TOKEN="xxx"
 ```
 
 ### Lark（国际版）域名

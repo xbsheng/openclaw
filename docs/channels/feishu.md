@@ -199,7 +199,7 @@ If you use `connectionMode: "webhook"`, set `verificationToken`. The Feishu webh
 
 #### Verification Token (webhook mode)
 
-When using webhook mode, configure `channels.feishu.verificationToken` (or `FEISHU_VERIFICATION_TOKEN`). To get the value:
+When using webhook mode, set `channels.feishu.verificationToken` in your config. To get the value:
 
 1. In Feishu Open Platform, open your app
 2. Go to **Development** → **Events & Callbacks** (开发配置 → 事件与回调)
@@ -213,8 +213,6 @@ When using webhook mode, configure `channels.feishu.verificationToken` (or `FEIS
 ```bash
 export FEISHU_APP_ID="cli_xxx"
 export FEISHU_APP_SECRET="xxx"
-# Required for webhook mode only:
-export FEISHU_VERIFICATION_TOKEN="xxx"
 ```
 
 ### Lark (global) domain
