@@ -197,11 +197,24 @@ Edit `~/.openclaw/openclaw.json`:
 
 If you use `connectionMode: "webhook"`, set `verificationToken`. The Feishu webhook server binds to `127.0.0.1` by default; set `webhookHost` only if you intentionally need a different bind address.
 
+#### Verification Token (webhook mode)
+
+When using webhook mode, configure `channels.feishu.verificationToken` (or `FEISHU_VERIFICATION_TOKEN`). To get the value:
+
+1. In Feishu Open Platform, open your app
+2. Go to **Development** → **Events & Callbacks** (开发配置 → 事件与回调)
+3. Open the **Encryption** tab (加密策略)
+4. Copy **Verification Token**
+
+![Verification Token location](../images/feishu-verification-token.png)
+
 ### Configure via environment variables
 
 ```bash
 export FEISHU_APP_ID="cli_xxx"
 export FEISHU_APP_SECRET="xxx"
+# Required for webhook mode only:
+export FEISHU_VERIFICATION_TOKEN="xxx"
 ```
 
 ### Lark (global) domain
