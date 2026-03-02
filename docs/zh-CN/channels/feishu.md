@@ -223,6 +223,26 @@ export FEISHU_APP_SECRET="xxx"
 export FEISHU_VERIFICATION_TOKEN="xxx"
 ```
 
+### Lark（国际版）域名
+
+如果您的租户在 Lark（国际版），请设置域名为 `lark`（或完整域名），可配置 `channels.feishu.domain` 或 `channels.feishu.accounts.<id>.domain`：
+
+```json5
+{
+  channels: {
+    feishu: {
+      domain: "lark",
+      accounts: {
+        main: {
+          appId: "cli_xxx",
+          appSecret: "xxx",
+        },
+      },
+    },
+  },
+}
+```
+
 ### 配额优化
 
 可通过以下可选配置减少飞书 API 调用：
@@ -244,26 +264,6 @@ export FEISHU_VERIFICATION_TOKEN="xxx"
           appSecret: "xxx",
           typingIndicator: true,
           resolveSenderNames: false,
-        },
-      },
-    },
-  },
-}
-```
-
-### Lark（国际版）域名
-
-如果您的租户在 Lark（国际版），请设置域名为 `lark`（或完整域名），可配置 `channels.feishu.domain` 或 `channels.feishu.accounts.<id>.domain`：
-
-```json5
-{
-  channels: {
-    feishu: {
-      domain: "lark",
-      accounts: {
-        main: {
-          appId: "cli_xxx",
-          appSecret: "xxx",
         },
       },
     },
@@ -378,9 +378,9 @@ openclaw pairing approve feishu <配对码>
 }
 ```
 
-### 仅允许特定用户在群组中执行控制命令（如 /reset、/new）
+### 仅允许特定成员在群组中发信（发送者白名单）
 
-除群组白名单外，控制命令还会按**发送者**的 open_id 校验。可为该群组配置允许执行命令的用户：
+除群组白名单外，该群组内**所有消息**均按发送者 open_id 校验：仅 `groups.<chat_id>.allowFrom` 中列出的用户消息会被处理，其他成员的消息会被忽略（此为发送者级白名单，不仅针对 /reset、/new 等控制命令）。
 
 ```json5
 {

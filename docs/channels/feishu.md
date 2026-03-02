@@ -372,9 +372,9 @@ After approval, you can chat normally.
 }
 ```
 
-### Allow specific users to run control commands in a group (e.g. /reset, /new)
+### Restrict which senders can message in a group (sender allowlist)
 
-In addition to allowing the group itself, control commands are gated by the **sender** open_id.
+In addition to allowing the group itself, **all messages** in that group are gated by the sender open_id: only users listed in `groups.<chat_id>.allowFrom` have their messages processed; messages from other members are ignored (this is full sender-level gating, not only for control commands like /reset or /new).
 
 ```json5
 {
